@@ -1,6 +1,8 @@
 streamlit==1.34.0
 streamlit-option-menu==0.3.6
-torch==2.5.0
+torch==2.2.1
+gdown==5.2.0
 torchcfm
-transformers==4.47.0
-sentence-transformers==4.0.0
+torchvision
+transformers
+sentence-transformers

@@ -115,7 +115,7 @@ def inference(original_image, text, model):
 def main():
     st.title('Text-Guided Image Generation using Conditional Flow Matching')
     st.subheader('Model: Conditional Flow Matching. Dataset: Tedbench')
-    text_input = st.text_input("Instruction: ", "A photo of a chair sawed in half.")
+    text_input = st.text_input("Instruction: ", "A photo of an open door.")
     option = st.selectbox('How would you like to give the input?', ('Upload Image File', 'Run Example Image'))
     if option == "Upload Image File":
         file = st.file_uploader("Please upload an image", type=["jpg", "png"])

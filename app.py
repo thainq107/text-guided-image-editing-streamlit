@@ -9,7 +9,7 @@ from torchvision.utils import make_grid
 from torchvision.transforms import ToPILImage
 from sentence_transformers import SentenceTransformer
 
-text_encoder = SentenceTransformer("all-mpnet-base-v2")
+text_encoder = SentenceTransformer("sentence-transformers/all-mpnet-base-v2")
 
 def timestep_embedding(timesteps, dim, max_period=10000):
     """Create sinusoidal timestep embeddings.

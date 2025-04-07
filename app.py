@@ -9,6 +9,7 @@ import torchvision.transforms as transforms
 from torchvision.utils import make_grid
 from torchvision.transforms import ToPILImage
 from sentence_transformers import SentenceTransformer
+torch.classes.__path__ = []
 
 text_encoder = SentenceTransformer("sentence-transformers/all-mpnet-base-v2")
 

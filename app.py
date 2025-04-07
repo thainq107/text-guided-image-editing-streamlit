@@ -10,7 +10,7 @@ from torchvision.utils import make_grid
 from torchvision.transforms import ToPILImage
 from sentence_transformers import SentenceTransformer
 
-text_encoder = None #SentenceTransformer("all-mpnet-base-v2")
+text_encoder = SentenceTransformer("all-mpnet-base-v2")
 
 def timestep_embedding(timesteps, dim, max_period=10000):
     """Create sinusoidal timestep embeddings.
@@ -81,7 +81,7 @@ class UNetModelWithTextEmbedding(UNetModel):
 model = UNetModelWithTextEmbedding(
     dim=(3, 256, 256), num_channels=32, num_res_blocks=1, embedding_dim=768
 )
-# model.load_state_dict(torch.load("text_guided_cfm.pth", map_location=torch.device('cpu'), weights_only=False))
+model.load_state_dict(torch.load("text_guided_cfm.pth", map_location=torch.device('cpu'), weights_only=False))
 
 transform = transforms.Compose([
     transforms.Resize((256, 256)),
@@ -130,14 +130,14 @@ def main():
             st.image(img)
           
     elif option == "Run Example Image":
-        image = Image.open('text_guided.png').convert("RGB")
-        # image = transform(image)
-        # pred_image = inference(image, text_input, model)
-        # npimg = pred_image.numpy()
-        # npimg = np.transpose(npimg, (1, 2, 0))
-        # npimg = ((npimg + 1) / 2 * 255).astype(np.uint8)
+        image = Image.open('example.png').convert("RGB")
+        image = transform(image)
+        pred_image = inference(image, text_input, model)
+        npimg = pred_image.numpy()
+        npimg = np.transpose(npimg, (1, 2, 0))
+        npimg = ((npimg + 1) / 2 * 255).astype(np.uint8)
         st.image(image)
-        # st.image(npimg, caption="Generated Image", use_column_width=True)
+        st.image(npimg, caption="Generated Image", use_column_width=True)
 
 if __name__ == '__main__':
     main() 

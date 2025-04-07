@@ -11,7 +11,7 @@ from torchvision.transforms import ToPILImage
 from sentence_transformers import SentenceTransformer
 torch.classes.__path__ = []
 
-text_encoder = SentenceTransformer("all-mpnet-base-v2")
+text_encoder = SentenceTransformer("thainq107/all-mpnet-base-v2")
 
 def timestep_embedding(timesteps, dim, max_period=10000):
     """Create sinusoidal timestep embeddings.

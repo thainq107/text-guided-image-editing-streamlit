@@ -81,7 +81,6 @@ class UNetModelWithTextEmbedding(UNetModel):
 model = UNetModelWithTextEmbedding(
     dim=(3, 256, 256), num_channels=32, num_res_blocks=1, embedding_dim=768
 )
-print(torch.load("text_guided_cfm.pth", map_location=torch.device('cpu')))
 model.load_state_dict(torch.load("text_guided_cfm.pth", map_location=torch.device('cpu'), weights_only=False))
 
 transform = transforms.Compose([

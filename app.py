@@ -130,7 +130,7 @@ def main():
             st.image(img)
           
     elif option == "Run Example Image":
-        image = Image.open('example.png').convert("RGB")
+        image = Image.open('text_guided.png').convert("RGB")
         # image = transform(image)
         # pred_image = inference(image, text_input, model)
         # npimg = pred_image.numpy()

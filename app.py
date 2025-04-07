@@ -131,13 +131,13 @@ def main():
           
     elif option == "Run Example Image":
         image = Image.open('example.png').convert("RGB")
-        image = transform(image)
-        pred_image = inference(image, text_input, model)
-        npimg = pred_image.numpy()
-        npimg = np.transpose(npimg, (1, 2, 0))
-        npimg = ((npimg + 1) / 2 * 255).astype(np.uint8)
+        # image = transform(image)
+        # pred_image = inference(image, text_input, model)
+        # npimg = pred_image.numpy()
+        # npimg = np.transpose(npimg, (1, 2, 0))
+        # npimg = ((npimg + 1) / 2 * 255).astype(np.uint8)
         st.image(image)
-        st.image(npimg, caption="Generated Image", use_column_width=True)
+        # st.image(npimg, caption="Generated Image", use_column_width=True)
 
 if __name__ == '__main__':
     main() 
